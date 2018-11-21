@@ -103,6 +103,18 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Define support email
+    |--------------------------------------------------------------------------
+    |
+    | when displaying this address, just pull it from the config:
+    | Questions? Email us at <?=config('mail.supportEmail')?>
+    |
+    */
+
+    'supportEmail' => 'ning.chen.cathy@gmail.com',
+
+    /*
+    |--------------------------------------------------------------------------
     | Markdown Mail Settings
     |--------------------------------------------------------------------------
     |
