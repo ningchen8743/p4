@@ -39,7 +39,7 @@ __Delete__
   + Observe confirmation message
 
 ## Outside resources
-  + My BB Bunny <https://www.youtube.com/user/mybbbunny>
+  + House Rabbit Society <https://rabbit.org/bunny-of-the-day/>
 
 ## Code style divergences
 *List any divergences from PSR-1/PSR-2 and course guidelines on code style*

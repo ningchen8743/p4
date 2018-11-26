@@ -24,6 +24,14 @@
         </select>
         <br><br>
 
+        <label>Age (select one or more)</label><br>
+        <input type='checkbox' name='age1' value='LessThan6Mons'>Less than 6 months<br>
+        <input type='checkbox' name='age2' value='6MonsToOneYear'>6 months to 1 year old<br>
+        <input type='checkbox' name='age3' value='OneToThreeYears'>One to three years old<br>
+        <input type='checkbox' name='age5' value='OlderThanThree'>Older than three years old<br>
+        <input type='checkbox' name='anyage' value='Any'>Any Age<br>
+        <br>
+
 
         <input type='submit' value='Find the bunnies!'>
     </form>
