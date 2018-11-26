@@ -1,0 +1,146 @@
+h1 {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    color: #707070;
+    text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 17px;
+}
+
+h2 {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    color: #3d4852;
+    text-align: center;
+    font-style: italic;
+    font-size: 17px;
+}
+
+label {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+p {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+legend {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+div {
+    border-radius: 7px;
+    background-color: #eee8f3;
+    padding: 20px;
+    width: 500px;
+    margin: auto;
+}
+
+.header {
+    overflow: hidden;
+    background-color: #f1f1f1;
+    padding: 20px 10px;
+}
+
+ul li {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-size: 14px;
+    margin-right: 30px;
+}
+
+input[type=submit] {
+    width: 40%;
+    background-color: rebeccapurple;
+    color: white;
+    padding: 13px 17px;
+    margin: 7px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input[type=submit]:hover {
+    background-color: #a999f9;
+    color: darkslateblue;
+    font-size: 15px;
+}
+
+select {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    width: 30%;
+    padding: 7px 13px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    margin: 7px 5px;
+}
+
+fieldset {
+    background-color: white;
+    max-width: 300px;
+}
+
+a {
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+    color: steelblue;
+    font-weight: bold;
+}
+
+#customNav {
+    list-style-type: none;
+    background-color: steelblue;
+    padding: 7px 11px;
+}
+
+#horizontalNavUL {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#horizontalNavUL a:link {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+#horizontalNavUL a:visited {
+    color: white;
+}
+
+#horizontalNavUL a:hover {
+    color: yellow;
+}
+
+.horizontalNavItem {
+    display: inline-block;
+    color: orange;
+    font-weight: bold;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.error {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    color: darkred;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 7px;
+    border-radius: 3px;
+}
+
+::placeholder {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+}
+

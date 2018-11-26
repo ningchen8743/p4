@@ -6,8 +6,8 @@
 *The following is example info taken from Foobooks; delete and replace with your own info.*
 
 Primary tables:
-  + `books`
-  + `authors`
+  + bunnies
+  + users
   + `tags`
   + `users`
   
@@ -39,7 +39,7 @@ __Delete__
   + Observe confirmation message
 
 ## Outside resources
-*Your list of outside resources go here*
+  + My BB Bunny <https://www.youtube.com/user/mybbbunny>
 
 ## Code style divergences
 *List any divergences from PSR-1/PSR-2 and course guidelines on code style*

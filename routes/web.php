@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('bunnyshelter.welcome');
 });
 
 Route::get('/debug', function () {
@@ -40,3 +40,24 @@ Route::get('/debug', function () {
 
     dump($debug);
 });
+
+Route::get('/search-bunny', function () {
+    return view('bunnyshelter.searchbunny');
+});
+
+Route::get('/research-bunny-process', 'ResearchController@searchBunny');
+
+
+/*@if ($maleOrFemale == 'buck')
+                <option value='buck' selected>Buck</option>
+                <option value='doe'>Doe</option>
+                <option value='both'>Both are fine</option>
+@elseif ($maleOrFemale == 'doe')
+<option value='buck'>Buck</option>
+                <option value='doe' selected>Doe</option>
+                <option value='both'>Both are fine</option>
+@else
+                <option value='buck'>Buck</option>
+                <option value='doe'>Doe</option>
+                <option value='both' selected>Either is fine</option>
+@endif*/
