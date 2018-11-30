@@ -47,6 +47,10 @@ div {
     padding: 20px 10px;
 }
 
+.bunnypic {
+    padding: 20px 10px;
+}
+
 ul li {
     font-family: "Century Gothic", Helvetica, sans-serif;
     font-size: 14px;
@@ -144,3 +148,6 @@ a {
     font-family: "Century Gothic", "Helvetica", sans-serif;
 }
 
+img.bunny{
+    max-height: 200px;
+}
