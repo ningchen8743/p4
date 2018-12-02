@@ -9,6 +9,10 @@
 
 <div>
 
+    @if(session('alert'))
+        <div class='alert'>{{ session('alert') }}</div>
+    @endif
+
     <header>
         <a href='/'><img src='/images/bunnyshelter.png' id='logo' alt='BunnyShelter Logo' width='100' height='120'></a>
     </header>

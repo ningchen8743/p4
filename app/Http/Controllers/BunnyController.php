@@ -6,6 +6,8 @@ use App\Bunny;
 
 use Illuminate\Http\Request;
 
+use Validator;
+
 class BunnyController extends Controller {
 
     public function index()
@@ -26,35 +28,95 @@ class BunnyController extends Controller {
         ]);
     }
 
-    public function create(Request $request)
+    public function initializeView(Request $request)
     {
-        return view('bunnyshelter.create');
+        $name = $request->session()->get('name', '');
+        $sex = $request->session()->get('sex', '');
+        $dob = $request->session()->get('dob', '');
+        $breed = $request->session()->get('breed', '');
+        $color = $request->session()->get('color', '');
+        $photoUrl = $request->session()->get('photo_url', '');
+
+        return view('bunnyshelter.create')->with([
+            'name' => $name,
+            'sex' => $sex,
+            'dob' => $dob,
+            'breed' => $breed,
+            'color' => $color,
+            'photo_url' => $photoUrl
+        ]);
     }
 
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'sex' => 'required',
-            'dob' => 'required',
-            'breed' => 'required',
-            'color' => 'required',
-            'photo_url' => 'required',
+        $validator= Validator::make ($request->all(),[
+            'name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'sex' => 'required|alpha',
+            'dob' => 'required|date_format:Y-m-d',
+            'breed' => 'required|regex:/^[\pL\s\-]+$/u',
+            'color' => 'required|regex:/^[\pL\s\-]+$/u',
+            'photo_url' => 'required|url',
         ]);
 
-        $bunny = new Bunny();
-        $bunny->name = $request->input('name');
-        $bunny->sex = $request->input('sex');
-        $bunny->dob = $request->input('dob');
-        $bunny->breed = $request->input('breed');
-        $bunny->color = $request->input('color');
-        $bunny->photo_url = $request->input('photo_url');
-        $bunny->save();
+        if ($validator->fails()) {
+            return redirect('/create')->withErrors($validator)->withInput();
+        }else {
+            $bunny = new Bunny();
+            $bunny->name = $request->input('name');
+            $bunny->sex = $request->input('sex');
+            $bunny->dob = $request->input('dob');
+            $bunny->breed = $request->input('breed');
+            $bunny->color = $request->input('color');
+            $bunny->photo_url = $request->input('photo_url');
+            $bunny->save();
 
-        return redirect('/all')->with([
-            'alert' => 'Your record was added.'
+            return redirect('/all')->with([
+                'alert' => 'Your record was added.'
+            ]);
+        }
+
+    }
+
+    public function edit($id)
+    {
+        $bunny = Bunny::find($id);
+        if (!$bunny) {
+            return redirect('/all')->with([
+                'alert' => 'The record is not found.'
+            ]);
+        }
+        return view('bunnyshelter.edit')->with([
+            'bunny' => $bunny
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'sex' => 'required|alpha',
+            'dob' => 'required|date_format:Y-m-d',
+            'breed' => 'required|regex:/^[\pL\s\-]+$/u',
+            'color' => 'required|regex:/^[\pL\s\-]+$/u',
+            'photo_url' => 'required|url',
         ]);
 
+        if ($validator->fails()) {
+            return redirect('/all/'.$id.'/edit')->withErrors($validator)->withInput();
+        } else {
+            $bunny = Bunny::find($id);
+            $bunny->name = $request->input('name');
+            $bunny->sex = $request->input('sex');
+            $bunny->dob = $request->input('dob');
+            $bunny->breed = $request->input('breed');
+            $bunny->color = $request->input('color');
+            $bunny->photo_url = $request->input('photo_url');
+            $bunny->save();
+
+            return redirect('/all/'.$id)->with([
+                'alert' => 'You have updated bunny information!'
+            ]);
+        }
     }
 
 }

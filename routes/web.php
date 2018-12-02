@@ -44,8 +44,11 @@ Route::get('/research-bunny-process', 'ResearchController@searchBunny');
 
 Route::get('/all/{id}', 'BunnyController@showeach');
 
-Route::get('/create', 'BunnyController@create');
+Route::get('/create', 'BunnyController@initializeView');
 Route::post('/all', 'BunnyController@store');
+
+Route::get('/all/{id}/edit', 'BunnyController@edit');
+Route::put('/all/{id}', 'BunnyController@update');
 
 /*@if ($maleOrFemale == 'buck')
                 <option value='buck' selected>Buck</option>
