@@ -35,6 +35,7 @@ class BunnyController extends Controller {
         $dob = $request->session()->get('dob', '');
         $breed = $request->session()->get('breed', '');
         $color = $request->session()->get('color', '');
+        $adoptionStatus = $request->session()->get('adoption_status', '');
         $photoUrl = $request->session()->get('photo_url', '');
 
         return view('bunnyshelter.create')->with([
@@ -43,6 +44,7 @@ class BunnyController extends Controller {
             'dob' => $dob,
             'breed' => $breed,
             'color' => $color,
+            'adoption_status' => $adoptionStatus,
             'photo_url' => $photoUrl
         ]);
     }
@@ -55,6 +57,7 @@ class BunnyController extends Controller {
             'dob' => 'required|date_format:Y-m-d',
             'breed' => 'required|regex:/^[\pL\s\-]+$/u',
             'color' => 'required|regex:/^[\pL\s\-]+$/u',
+            'adoption_status' => 'required|alpha',
             'photo_url' => 'required|url',
         ]);
 
@@ -67,6 +70,7 @@ class BunnyController extends Controller {
             $bunny->dob = $request->input('dob');
             $bunny->breed = $request->input('breed');
             $bunny->color = $request->input('color');
+            $bunny->adoption_status = $request->input('adoption_status');
             $bunny->photo_url = $request->input('photo_url');
             $bunny->save();
 
@@ -98,6 +102,7 @@ class BunnyController extends Controller {
             'dob' => 'required|date_format:Y-m-d',
             'breed' => 'required|regex:/^[\pL\s\-]+$/u',
             'color' => 'required|regex:/^[\pL\s\-]+$/u',
+            'adoption_status' => 'required|alpha',
             'photo_url' => 'required|url',
         ]);
 
@@ -110,6 +115,7 @@ class BunnyController extends Controller {
             $bunny->dob = $request->input('dob');
             $bunny->breed = $request->input('breed');
             $bunny->color = $request->input('color');
+            $bunny->adoption_status = $request->input('adoption_status');
             $bunny->photo_url = $request->input('photo_url');
             $bunny->save();
 
@@ -119,4 +125,21 @@ class BunnyController extends Controller {
         }
     }
 
+    public function delete($id)
+    {
+        $bunny = Bunny::find($id);
+
+        if(!$bunny) {
+            return redirect('/all/{id}')->with([
+                'alert' => 'The record is not found.'
+            ]);
+        }
+
+        $bunny->delete();
+
+        $msg = 'The adopted bunny profile has been deleted.';
+        return redirect('/all')->with([
+            'alert' => $msg,
+        ]);
+    }
 }

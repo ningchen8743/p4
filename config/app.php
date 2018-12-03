@@ -13,6 +13,13 @@ return [
     |
     */
 
+    'nav' => [
+        '/about' => 'About',
+        '/all' => 'See all the bunnies!',
+        '/search-bunny' => 'Find one you like!',
+    ],
+
+
     'name' => env('APP_NAME', 'The bunny shelter'),
 
     /*

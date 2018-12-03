@@ -39,6 +39,11 @@
         @include('errors.my_error', ['key' => 'color'])
         <br>
 
+        <label for='adoption_status'>Adoption status</label>
+        <input type='text' name='adoption_status' id='adoption_status' value={{ old('adoption_status') }}>
+        @include('errors.my_error', ['key' => 'adoption_status'])
+        <br>
+
         <label for='photo_url'>Photo url</label>
         <input type='text' name='photo_url' id='photo_url' value={{ old('photo_url') }}>
         @include('errors.my_error', ['key' => 'photo_url'])

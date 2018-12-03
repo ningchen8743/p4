@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('bunnyshelter.welcome');
 });
 
+Route::view('/about', 'bunnyshelter.about');
+
 Route::get('/debug','SearchController@searchBunny');
 
 /*Route::get('/debug', function () {
@@ -49,6 +51,8 @@ Route::post('/all', 'BunnyController@store');
 
 Route::get('/all/{id}/edit', 'BunnyController@edit');
 Route::put('/all/{id}', 'BunnyController@update');
+
+Route::get('/all/{id}/delete','BunnyController@delete');
 
 /*@if ($maleOrFemale == 'buck')
                 <option value='buck' selected>Buck</option>

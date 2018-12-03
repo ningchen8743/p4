@@ -12,7 +12,9 @@
         <li>breed: {{$bunny->breed}}</li>
         <li>dob: {{$bunny->dob}}</li>
         <li>color: {{$bunny->color}}</li>
+        <li>adoption status: {{$bunny->adoption_status}}</li>
     </ul>
+    <a href='/all/{{$bunny->id}}/delete'>Delete adopted bunny's profile</a><br>
     <a href='/all'>Back</a>
 
 @endsection

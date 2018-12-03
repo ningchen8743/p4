@@ -22,6 +22,7 @@ class CreateBunniesTable extends Migration
             $table->date('dob');
             $table->string('breed');
             $table->string('color');
+            $table->string('adoption_status');
             $table->string('photo_url');
         });
     }
