@@ -15,9 +15,15 @@ Route::get('/', function () {
     return view('bunnyshelter.welcome');
 });
 
-Route::view('/about', 'bunnyshelter.about');
 
-Route::get('/debug','SearchController@searchBunny');
+Route::view('/about', 'bunnyshelter.about');
+Route::view('/contact', 'bunnyshelter.contact');
+
+
+Route::get('/search-bunny', function () {
+    return view('bunnyshelter.searchbunny');
+});
+Route::get('/search-bunny-process','SearchController@searchBunny');
 
 /*Route::get('/debug', function () {
 
@@ -38,11 +44,8 @@ Route::get('/debug','SearchController@searchBunny');
 
 Route::get('/all', 'BunnyController@index');
 
-Route::get('/search-bunny', function () {
-    return view('bunnyshelter.searchbunny');
-});
 
-Route::get('/research-bunny-process', 'ResearchController@searchBunny');
+//oute::get('/research-bunny-process', 'ResearchController@searchBunny');
 
 Route::get('/all/{id}', 'BunnyController@showeach');
 

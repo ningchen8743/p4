@@ -17,6 +17,7 @@ return [
         '/about' => 'About',
         '/all' => 'See all the bunnies!',
         '/search-bunny' => 'Find one you like!',
+        '/contact' => 'Contact us',
     ],
 
 

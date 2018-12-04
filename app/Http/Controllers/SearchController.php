@@ -8,15 +8,37 @@ use App\Bunny;
 
 class SearchController extends Controller
 {
-    public function searchBunny()
+    public function searchBunny(Request $request)
     {
-        $bunny = new Bunny();
-        $bunnies = $bunny->where('breed', '=', 'Lionhead')->get();
-            foreach ($bunnies as $bunny){
-                $bunny->breed = 'Lion';
-                $bunny->save();
-            }
-        Bunny::dump();
-        Practice::resetDatabase();
+        $buckOrDoe = $request->input('buckOrDoe');
+
+        if($buckOrDoe == 'buck')
+        {
+            $bunnies = Bunny::where('sex', '=', 'buck')->get();
+        }
+        elseif($buckOrDoe == 'doe')
+        {
+            $bunnies = Bunny::where('sex', '=', 'doe')->get();
+        }
+        else // $buckOrDoe == 'both'
+        {
+            $bunnies = Bunny::all();
+        }
+
+        // $bunnies = Bunny::where('breed', '=', '')->get();
+
+
+        if (!$bunnies)
+        {
+            return view('bunnyshelter.searchbunny')->with([
+                'alert' => 'The record is not found.'
+            ]);
+        }
+
+        return view('bunnyshelter.searchbunny')->with([
+            'bunnies' => $bunnies,
+            'buckOrDoe' => $buckOrDoe,
+            'alert' => 'These are the bunnies you like'
+        ]);
     }
 }
