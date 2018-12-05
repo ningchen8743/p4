@@ -6,7 +6,7 @@
     <ul>
         <li>Visit us: 1 carrot farmer road, bunny town, Rabbit State</li>
         <li>Call us: 1-800-lovebunnies</li>
-        <li>Or email us: adoption_center@bunny.com</li>
+        <li>Or email us: bunny_center@animalshelter.com</li>
     </ul>
 
 @endsection

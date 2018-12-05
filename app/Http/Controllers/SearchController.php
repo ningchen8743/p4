@@ -10,35 +10,44 @@ class SearchController extends Controller
 {
     public function searchBunny(Request $request)
     {
+        // extract data from quest
+        $breeds = $request->input('breed', [
+            'Netherland Dwarf', 'Lop', 'Lionhead', 'Rex',
+            'Angora', 'Jersey Wooly']);
         $buckOrDoe = $request->input('buckOrDoe');
 
-        if($buckOrDoe == 'buck')
-        {
-            $bunnies = Bunny::where('sex', '=', 'buck')->get();
-        }
-        elseif($buckOrDoe == 'doe')
-        {
-            $bunnies = Bunny::where('sex', '=', 'doe')->get();
-        }
-        else // $buckOrDoe == 'both'
-        {
-            $bunnies = Bunny::all();
-        }
-
-        // $bunnies = Bunny::where('breed', '=', '')->get();
+        // perform query
+        $result = Bunny::query();
+        $result->where(function ($_q) use ($breeds) {
+            foreach ($breeds as $breed) {
+                $_q->orWhere('breed', '=', $breed);
+            }
+        });
 
 
-        if (!$bunnies)
+        if($buckOrDoe == 'buck' || $buckOrDoe == 'doe')
+        {
+            $result->where('sex', '=', $buckOrDoe);
+        }
+        // $buckOrDoe == 'both' do nothing
+
+
+        $bunnies = $result->get();
+        if($bunnies->count() == 0)
         {
             return view('bunnyshelter.searchbunny')->with([
-                'alert' => 'The record is not found.'
+                'bunnies' => $bunnies,
+                'alert' => 'Sorry! Your preferred bunny is not found, please give another try:)'
             ]);
         }
-
-        return view('bunnyshelter.searchbunny')->with([
-            'bunnies' => $bunnies,
-            'buckOrDoe' => $buckOrDoe,
-            'alert' => 'These are the bunnies you like'
-        ]);
+        else
+        {
+            return view('bunnyshelter.searchbunny')->with([
+                'bunnies' => $bunnies,
+                //'buckOrDoe' => $buckOrDoe,
+                //'breeds' => $breeds,
+                'alert' => 'These are the bunnies you like'
+            ]);
+        }
     }
 }

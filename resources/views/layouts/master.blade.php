@@ -9,8 +9,8 @@
 
 <div>
 
-    @if(session('alert'))
-        <div class='alert'>{{ session('alert') }}</div>
+    @if(isset($alert))
+        <div class='alert'>{{ $alert }}</div>
     @endif
 
     <header>
