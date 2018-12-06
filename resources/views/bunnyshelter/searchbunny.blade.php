@@ -33,12 +33,13 @@
         <input type='submit' value='Find the bunnies!'>
     </form>
 
+    <div class='my-image-row'>
     @if(isset($bunnies))
         @foreach($bunnies as $bunny)
-                <a href='/all/{{$bunny->id}}'>{{$bunny->name}}</a><br>
-                <img src='{{ $bunny->photo_url }}' alt='bunny profile photo'><br><br>
+                @include('bunnyshelter._bunny')
         @endforeach
     @endif
+    <div class='my-image-row'>
 
 
 @endsection

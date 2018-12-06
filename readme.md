@@ -28,7 +28,7 @@ __Read__
   + Click on the name of the bunny, to view specific profile
   
 __Update__
-  + Visit <http://p4.ningchenbunny.com/all>; choose the Modify button below the bunny's photo
+  + Visit <http://p4.ningchenbunny.com/all/3>; click on Modify profile link below the bunny's photo
   + Make some edits to form
   + Click *Submit changes*
   + Observe confirmation message
@@ -40,12 +40,15 @@ __Delete__
 
 ## Search record
   + Visit <http://p4.foobooks.me/search-bunny>;
-  + Choose the requirements from each section
+  + Choose the criteria users prefer from each section
   + Click *Find the bunnies*
   + Observe search result message and available bunny profiles below
   
 ## Outside resources
   + House Rabbit Society <https://rabbit.org/bunny-of-the-day/>
+  + Logo design credit: Tianyu Liu
+  + KissPNG <https://pt.kisspng.com/kisspng-fdmasa/>
+  + Animalia Georgetown <http://animaliageorgetown.weebly.com/>
 
 ## Code style divergences
   + N/A

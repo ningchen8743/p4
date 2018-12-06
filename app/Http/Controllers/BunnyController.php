@@ -129,17 +129,24 @@ class BunnyController extends Controller {
     {
         $bunny = Bunny::find($id);
 
-        if(!$bunny) {
-            return redirect('/all/{id}')->with([
+        if (!$bunny) {
+            return redirect('/all')->with([
                 'alert' => 'The record is not found.'
             ]);
         }
 
-        $bunny->delete();
-
-        $msg = 'The adopted bunny profile has been deleted.';
-        return redirect('/all')->with([
-            'alert' => $msg,
+        return view('bunnyshelter.delete')->with([
+            'bunny' => $bunny,
         ]);
     }
+
+    public function destroy($id)
+    {
+        $bunny = Bunny::find($id);
+        $bunny->delete();
+        return redirect('/all')->with([
+            'alert' => 'The adopted bunny profile has been deleted.',
+        ]);
+    }
+
 }

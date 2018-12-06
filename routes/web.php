@@ -56,6 +56,7 @@ Route::get('/all/{id}/edit', 'BunnyController@edit');
 Route::put('/all/{id}', 'BunnyController@update');
 
 Route::get('/all/{id}/delete','BunnyController@delete');
+Route::delete('/all/{id}','BunnyController@destroy');
 
 /*@if ($maleOrFemale == 'buck')
                 <option value='buck' selected>Buck</option>
