@@ -29,6 +29,9 @@
             <input type='radio' name='age' value='more_than_1_year'>More than 1 year<br>
         <br>
 
+        @foreach($colors as $colorId => $colorName)
+            {{ $colorId.' '.$colorName }}<br>
+        @endforeach
 
         <input type='submit' value='Find the bunnies!'>
     </form>

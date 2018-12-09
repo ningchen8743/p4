@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Utilities\Practice;
 use Illuminate\Http\Request;
 use App\Bunny;
+use App\Color;
 
 class SearchController extends Controller
 {
@@ -15,6 +16,8 @@ class SearchController extends Controller
             'Netherland Dwarf', 'Lop', 'Lionhead', 'Rex',
             'Angora', 'Jersey Wooly']);
         $buckOrDoe = $request->input('buckOrDoe');
+
+        $colors = Color::getForCheckboxes();
 
         // perform query
         $result = Bunny::query();

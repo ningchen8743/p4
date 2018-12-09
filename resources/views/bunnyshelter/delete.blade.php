@@ -17,6 +17,6 @@
         <input type='submit' value='Yes, delete the profile.'>
     </form>
 
-    <a href='/all/{{$bunny->id}}'> No, I don't want to delete anymore.</a>
+    <a href='/all/{{$bunny->id}}'> No, I want to keep bunny in the archive!</a>
 
 @endsection

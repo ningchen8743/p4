@@ -20,4 +20,9 @@ class Bunny extends Model
 
         dump($data);
     }
+
+    public function colors()
+    {
+        return $this->belongsToMany('App\Color')->withTimestamps();
+    }
 }
