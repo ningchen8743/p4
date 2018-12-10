@@ -15,17 +15,49 @@ Route::get('/', function () {
     return view('bunnyshelter.welcome');
 });
 
-
 Route::view('/about', 'bunnyshelter.about');
+Route::get('/all', 'BunnyController@index');
 Route::view('/contact', 'bunnyshelter.contact');
 
 
-Route::get('/search-bunny', function () {
+Route::get('/search-bunny',function () {
     return view('bunnyshelter.searchbunny');
 });
-Route::get('/search-bunny-process','SearchController@searchBunny');
 
-/*Route::get('/debug', function () {
+
+Route::group(['middleware' => 'auth'], function () {
+
+    Route::get('/search-bunny-process','SearchController@searchBunny');
+
+    Route::get('/all/{id}','BunnyController@showeach');
+
+    Route::get('/create','BunnyController@initializeView');
+    Route::post('/all','BunnyController@store');
+
+    Route::get('/all/{id}/edit','BunnyController@edit');
+    Route::put('/all/{id}','BunnyController@update');
+
+
+    Route::get('/all/{id}/delete','BunnyController@delete');
+    Route::delete('/all/{id}','BunnyController@destroy');
+});
+
+
+Auth::routes();
+
+Route::get('/show-login-status', function () {
+    $user = Auth::user();
+
+    if ($user) {
+        dump('You are logged in.', $user->toArray());
+    } else {
+        dump('You are not logged in.');
+    }
+
+    return;
+});
+
+Route::get('/debug', function () {
 
     $debug = [
         'Environment' => App::environment(),
@@ -40,34 +72,4 @@ Route::get('/search-bunny-process','SearchController@searchBunny');
     }
 
     dump($debug);
-});*/
-
-Route::get('/all', 'BunnyController@index');
-
-
-//oute::get('/research-bunny-process', 'ResearchController@searchBunny');
-
-Route::get('/all/{id}', 'BunnyController@showeach');
-
-Route::get('/create', 'BunnyController@initializeView');
-Route::post('/all', 'BunnyController@store');
-
-Route::get('/all/{id}/edit', 'BunnyController@edit');
-Route::put('/all/{id}', 'BunnyController@update');
-
-Route::get('/all/{id}/delete','BunnyController@delete');
-Route::delete('/all/{id}','BunnyController@destroy');
-
-/*@if ($maleOrFemale == 'buck')
-                <option value='buck' selected>Buck</option>
-                <option value='doe'>Doe</option>
-                <option value='both'>Both are fine</option>
-@elseif ($maleOrFemale == 'doe')
-<option value='buck'>Buck</option>
-                <option value='doe' selected>Doe</option>
-                <option value='both'>Both are fine</option>
-@else
-                <option value='buck'>Buck</option>
-                <option value='doe'>Doe</option>
-                <option value='both' selected>Either is fine</option>
-@endif*/
+});

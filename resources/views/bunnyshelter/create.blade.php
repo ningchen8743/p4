@@ -5,8 +5,7 @@
 @endsection
 
 @section('content')
-    <h1>Fill in bunny's information below</h1>
-
+    <p>If you find an abandoned bunny, please fill in his/hers information below. We are here to help!</p>
     @if($errors->any())
         <div class='error'>Please correct the errors below, all fields are required.</div>
     @endif
@@ -34,12 +33,7 @@
         @include('errors.my_error', ['key' => 'breed'])
         <br>
 
-        <label for='color'>Color</label>
-        <input type='text' name='color' id='color' value={{ old('color') }}>
-        @include('errors.my_error', ['key' => 'color'])
-        <br>
-
-        <label for='adoption_status'>Adoption status</label>
+        <label for='adoption_status'>Adoption status (adoptable or adopted)</label>
         <input type='text' name='adoption_status' id='adoption_status' value={{ old('adoption_status') }}>
         @include('errors.my_error', ['key' => 'adoption_status'])
         <br>

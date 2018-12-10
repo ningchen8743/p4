@@ -18,6 +18,8 @@ class SearchController extends Controller
         $buckOrDoe = $request->input('buckOrDoe');
 
         $colors = Color::getForCheckboxes();
+        dump($colors);
+
 
         // perform query
         $result = Bunny::query();

@@ -16,6 +16,13 @@ return [
     'nav' => [
         '/about' => 'About',
         '/all' => 'See all the bunnies!',
+        '/contact' => 'Contact us',
+        '/login' => 'Login',
+    ],
+
+    'nav1' => [
+        '/about' => 'About',
+        '/all' => 'See all the bunnies!',
         '/search-bunny' => 'Find one you like!',
         '/create' => 'Add an adoptable bunny',
         '/contact' => 'Contact us',
@@ -48,7 +55,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -169,6 +176,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -181,6 +189,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\ViewServiceProvider::class,
 
     ],
 
