@@ -35,12 +35,7 @@
         @include('errors.my_error', ['key' => 'breed'])
         <br>
 
-        <label for='color'>Color</label>
-        <input type='text' name='color' id='color' value={{ old('color', $bunny->color) }}>
-        @include('errors.my_error', ['key' => 'color'])
-        <br>
-
-        <label for='adoption_status'>Adoption status</label>
+        <label for='adoption_status'>Adoption status (type in "adoptable" or "adopted")</label>
         <input type='text' name='adoption_status' id='adoption_status' value={{ old('adoption_status', $bunny->adoption_status) }}>
         @include('errors.my_error', ['key' => 'adoption_status'])
         <br>

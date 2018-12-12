@@ -24,7 +24,7 @@ return [
         '/about' => 'About',
         '/all' => 'See all the bunnies!',
         '/search-bunny' => 'Find one you like!',
-        '/create' => 'Add an adoptable bunny',
+        '/donate' => 'Show some love for bunnies!',
         '/contact' => 'Contact us',
     ],
 

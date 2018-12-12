@@ -11,7 +11,6 @@
         <li>sex: {{$bunny->sex}}</li>
         <li>breed: {{$bunny->breed}}</li>
         <li>dob: {{$bunny->dob}}</li>
-        <li>color: {{$bunny->color}}</li>
         <li>adoption status: {{$bunny->adoption_status}}</li>
     </ul>
     <a href='/all/{{$bunny->id}}/edit'>Modify {{$bunny->name}}'s profile</a><br>

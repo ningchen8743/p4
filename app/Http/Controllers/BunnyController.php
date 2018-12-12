@@ -30,48 +30,23 @@ class BunnyController extends Controller {
 
     public function initializeView(Request $request)
     {
-        $name = $request->session()->get('name', '');
-        $sex = $request->session()->get('sex', '');
-        $dob = $request->session()->get('dob', '');
-        $breed = $request->session()->get('breed', '');
-        $adoptionStatus = $request->session()->get('adoption_status', '');
-        $photoUrl = $request->session()->get('photo_url', '');
 
-        return view('bunnyshelter.create')->with([
-            'name' => $name,
-            'sex' => $sex,
-            'dob' => $dob,
-            'breed' => $breed,
-            'adoption_status' => $adoptionStatus,
-            'photo_url' => $photoUrl
+        return view('bunnyshelter.donate')->with([
         ]);
     }
 
     public function store(Request $request)
     {
         $validator= Validator::make ($request->all(),[
-            'name' => 'required|regex:/^[\pL\s\-]+$/u',
-            'sex' => 'required|alpha',
-            'dob' => 'required|date_format:Y-m-d',
-            'breed' => 'required|regex:/^[\pL\s\-]+$/u',
-            'adoption_status' => 'required|alpha',
-            'photo_url' => 'required|url',
+            'value' => 'required|numeric',
         ]);
 
         if ($validator->fails()) {
-            return redirect('/create')->withErrors($validator)->withInput();
+            return redirect('/donate')->withErrors($validator)->withInput();
         }else {
-            $bunny = new Bunny();
-            $bunny->name = $request->input('name');
-            $bunny->sex = $request->input('sex');
-            $bunny->dob = $request->input('dob');
-            $bunny->breed = $request->input('breed');
-            $bunny->adoption_status = $request->input('adoption_status');
-            $bunny->photo_url = $request->input('photo_url');
-            $bunny->save();
 
-            return redirect('/all')->with([
-                'alert' => 'Your record was added.'
+            return redirect('/donate')->with([
+                'alert' => 'Your donation record was added to the list.'
             ]);
         }
 
@@ -137,6 +112,13 @@ class BunnyController extends Controller {
     public function destroy($id)
     {
         $bunny = Bunny::find($id);
+        $adoption_status = $bunny->adoption_status;
+        if ($adoption_status!='adopted') {
+            return redirect('/all/'.$id)->with([
+                'alert' => 'Only adopted bunny record can be deleted.'
+            ]);
+        }
+        $bunny->colors()->detach();
         $bunny->delete();
         return redirect('/all')->with([
             'alert' => 'The adopted bunny profile has been deleted.',

@@ -31,8 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/all/{id}','BunnyController@showeach');
 
-    Route::get('/create','BunnyController@initializeView');
-    Route::post('/all','BunnyController@store');
+    Route::get('/donate','BunnyController@initializeView');
+    Route::post('/donate','BunnyController@store');
 
     Route::get('/all/{id}/edit','BunnyController@edit');
     Route::put('/all/{id}','BunnyController@update');
