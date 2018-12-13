@@ -49,6 +49,7 @@ __Delete__
   + Logo design credit: Tianyu Liu
   + KissPNG <https://pt.kisspng.com/kisspng-fdmasa/>
   + Animalia Georgetown <http://animaliageorgetown.weebly.com/>
+  + Desktopbackground for background image:<https://www.desktopbackground.org/>
 
 ## Code style divergences
   + N/A

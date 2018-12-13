@@ -1,109 +1,110 @@
+html {
+    background: url("/images/background_image.jpg");
+}
+
+div {
+    border-radius: 7px;
+    background-color: RGB(220,227,220);
+    width: 900px;
+    padding:10px;
+    margin: auto;
+}
+
+section {
+    padding: 10px;
+}
+
+header {
+    padding-top: 10px;
+    text-align:center;
+}
+
 h1 {
     font-family: "Century Gothic", "Helvetica", sans-serif;
-    color: dimgrey;
+    color: darkslategrey;
     text-align: center;
     font-size: 17px;
 }
 
 h2 {
     font-family: "Century Gothic", "Helvetica", sans-serif;
-    color: #3d4852;
-    text-align: left;
-    font-size: 15px;
-    padding: 0px 20px;
+    text-align: center;
+    font-size: 16px;
+    color: darkslategrey;
 }
 
 label {
     font-family: "Century Gothic", Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 15px;
+    color: darkslategrey;
 }
 
 p {
     font-family: "Century Gothic", Helvetica, sans-serif;
-    font-style: italic;
-    font-weight: bold;
-    font-size: 14px;
-}
-
-legend {
-    font-family: "Century Gothic", Helvetica, sans-serif;
     font-weight: bold;
     font-size: 15px;
+    text-align: center;
+    color: darkslategrey;
 }
 
-div {
-    border-radius: 7px;
-    background-color: #eee8f3;
-    padding: 20px;
-    width: 800px;
-    margin: auto;
-}
-
-
-.header {
-    overflow: hidden;
-    background-color: #f1f1f1;
-    padding: 20px 10px;
-}
-
-.bunnypic {
-    padding: 20px 10px;
-}
 
 ul li {
     font-family: "Century Gothic", Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 15px;
     margin-right: 30px;
+    font-weight: bold;
+    text-align: center;
+    list-style-type: none;
+    color: slategrey;
 }
 
 input[type=submit] {
-    width: 40%;
-    background-color: rebeccapurple;
+    font-family: "Century Gothic", Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    width: 30%;
+    background-color: RGB(72,181,163);
     color: white;
     padding: 13px 17px;
     margin: 7px 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-family: "Century Gothic", Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: bold;
 }
 
 input[type=submit]:hover {
-    background-color: #a999f9;
-    color: darkslateblue;
-    font-size: 15px;
+    background-color: darkcyan;
+    color: orange;
+    font-size: 17px;
 }
 
 select {
     font-family: "Century Gothic", Helvetica, sans-serif;
-    width: 30%;
+    font-weight: bold;
+    color: darkslategrey;
+    font-size: 15px;
+    width: 20%;
     padding: 7px 13px;
     border: none;
     border-radius: 4px;
-    background-color: white;
+    background-color: whitesmoke;
     margin: 7px 5px;
-}
-
-fieldset {
-    background-color: white;
-    max-width: 300px;
 }
 
 a {
     font-family: "Century Gothic", Helvetica, sans-serif;
     font-size: 14px;
     text-decoration: none;
-    color: steelblue;
+    color: rebeccapurple;
     font-weight: bold;
 }
 
 #customNav {
     list-style-type: none;
-    background-color: steelblue;
     padding: 7px 11px;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(54, 133, 130, 0) 0%, rgba(54, 133, 130, 1) 25%, rgba(34, 113, 109, 1) 50%, rgba(54, 133, 130, 1) 75%, rgba(54, 133, 130, 0) 100%);
 }
 
 #horizontalNavUL {
@@ -119,12 +120,9 @@ a {
     text-decoration: none;
 }
 
-#horizontalNavUL a:visited {
-    color: white;
-}
 
 #horizontalNavUL a:hover {
-    color: yellow;
+    color: lightblue;
 }
 
 .horizontalNavItem {
@@ -144,12 +142,10 @@ a {
     border-radius: 3px;
 }
 
-::placeholder {
-    font-family: "Century Gothic", "Helvetica", sans-serif;
-}
-
 .bunny{
-    max-height: 200px;
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
 }
 
 .welcome-pic{

@@ -6,7 +6,7 @@
 
 @section('content')
     <h1>Please help build our community!</h1>
-    <p>Please select the amount you would like to donate, thank you!</p>
+    <h2>Please select the amount you would like to donate, thank you!</h2>
     @if($errors->any())
         <div class='error'>Please correct the errors below.</div>
     @endif

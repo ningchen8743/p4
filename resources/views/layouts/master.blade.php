@@ -8,6 +8,7 @@
 
 </head>
 
+
 <div>
 
     @if(session('alert'))
@@ -16,9 +17,9 @@
 
     <header>
         <a href='/'><img src='/images/bunnyshelter1.png' id='logo' alt='BunnyShelter Logo'  height='120'></a>
-        @include('modules.nav')
     </header>
-    <br>
+
+    @include('modules.nav')
 
     <section>
         @yield('content')
