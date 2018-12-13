@@ -18,10 +18,10 @@ Pivot table(s):
 *Describe what action I need take in order to see an example of all 4 CRUD operations in your app. I've filled this out with examples from the Foobooks app - delete this and replace with your own info. If one operation is performed multiple times (e.g. Read), you only need to provide 1 example.*
 
 __Create__
-  + Visit <http://p4.ningchenbunny.com/create>
-  + Fill out bunny information
-  + Click *Add the record*
-  + Observe confirmation message
+  + Visit donation panel: <http://p4.loc/donate>;
+  + Choose the donation amount, or type in amount below
+  + Click *Donate!*
+  + Observe the newly added record in the donation list
   
 __Read__
   + Visit <http://p4.ningchenbunny.com/all> see a listing of bunnies archived
@@ -34,6 +34,7 @@ __Update__
   + Observe confirmation message
   
 __Delete__
+  + After changing adoption status to "adopted" in bunny profile <http://p4.loc/all/3/edit>
   + Visit <http://p4.ningchenbunny.com/all/3>; click on the Delete adopted bunny's profile link below
   + Confirm deletion
   + Observe confirmation message

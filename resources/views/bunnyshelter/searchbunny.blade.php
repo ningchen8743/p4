@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form method='GET' action='/search-bunny-process' id='search_bunny'>
+    <form class='searchbunny' method='GET' action='/search-bunny-process' id='search_bunny'>
         <label>Find a bunny you would like to adopt!</label>
         <br>
 
@@ -23,7 +23,7 @@
         </select>
         <br><br>
 
-        <label>Age (select one or more)</label><br>
+        <label>Age (select one)</label><br>
             <input type='radio' name='age' value='less_than_6_months'>Less than 6 months<br>
             <input type='radio' name='age' value='6_months_to_1_year'>6 months to 1 year<br>
             <input type='radio' name='age' value='more_than_1_year'>More than 1 year<br>
@@ -38,13 +38,13 @@
         <input type='submit' value='Find the bunnies!'>
     </form>
 
-    <div class='my-image-row'>
+    <div class='img-with-text'>
     @if(isset($bunnies))
         @foreach($bunnies as $bunny)
                 @include('bunnyshelter._bunny')
+                <a href='/all/{{$bunny->id}}/edit'>Adopt {{$bunny->name}}</a>
         @endforeach
     @endif
-    <div class='my-image-row'>
-
+    </div>
 
 @endsection

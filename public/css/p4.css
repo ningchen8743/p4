@@ -10,6 +10,23 @@ div {
     margin: auto;
 }
 
+div.error {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    color: darkred;
+    font-weight: bold;
+    font-size: 14px;
+    padding:0px;
+}
+
+form {
+    text-align: center;
+}
+
+.searchbunny {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
+    color: darkslategrey;
+}
+
 section {
     padding: 10px;
 }
@@ -79,6 +96,13 @@ input[type=submit]:hover {
     font-size: 17px;
 }
 
+input[type=checkbox],input[type=radio] {
+    position: relative;
+    float:left;
+    left: 350px;
+}
+
+
 select {
     font-family: "Century Gothic", Helvetica, sans-serif;
     font-weight: bold;
@@ -98,6 +122,16 @@ a {
     text-decoration: none;
     color: rebeccapurple;
     font-weight: bold;
+}
+
+a.right {
+    float:right;
+}
+
+a.center {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
 }
 
 #customNav {
@@ -133,13 +167,11 @@ a {
     margin-right: 10px;
 }
 
-.error {
-    font-family: "Century Gothic", "Helvetica", sans-serif;
-    color: darkred;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 7px;
-    border-radius: 3px;
+
+.eachbunny{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bunny{
