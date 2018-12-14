@@ -30,8 +30,12 @@ class BunnyController extends Controller {
 
     public function initializeView(Request $request)
     {
+        $user = $request->user();
+        $donations = $user->donations()->get();
+
 
         return view('bunnyshelter.donate')->with([
+            'donations' => $donations,
         ]);
     }
 

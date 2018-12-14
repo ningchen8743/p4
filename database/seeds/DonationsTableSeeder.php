@@ -17,6 +17,7 @@ class DonationsTableSeeder extends Seeder
         foreach ($donations as $donationAmount) {
             $donation = new Donation();
             $donation->amount = $donationAmount;
+            $donation->user_id = 1;
             $donation->save();
         }
     }

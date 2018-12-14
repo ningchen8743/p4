@@ -12,7 +12,7 @@ class ColorsTableSeeder extends Seeder
      */
     public function run()
     {
-        $colors = ['white', 'black', 'grey', 'beige', 'brown', 'monochrome', 'color block', 'gradient'];
+        $colors = ['white', 'black', 'grey', 'brown'];
 
         foreach ($colors as $colorName) {
             $color = new Color();

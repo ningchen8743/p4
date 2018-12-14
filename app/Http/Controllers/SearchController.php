@@ -6,6 +6,7 @@ use App\Utilities\Practice;
 use Illuminate\Http\Request;
 use App\Bunny;
 use App\Color;
+use Carbon\Carbon;
 
 class SearchController extends Controller
 {
@@ -18,7 +19,6 @@ class SearchController extends Controller
         $buckOrDoe = $request->input('buckOrDoe');
 
         $colors = Color::getForCheckboxes();
-        dump($colors);
 
 
         // perform query
@@ -36,8 +36,39 @@ class SearchController extends Controller
         }
         // $buckOrDoe == 'both' do nothing
 
+        $bunnies_temp = $result->get();
+        $bunnies = collect();
+        $age_range = $request->input('age', 'any');
+        $now = Carbon::now();
+        foreach($bunnies_temp as $bunny)
+        {
+            $past = Carbon::parse($bunny->dob);
+            $ageInMonths = $now->diffInMonths($past);
 
-        $bunnies = $result->get();
+            if($age_range == 'less_than_1_year')
+            {
+                if($ageInMonths < 12.0)
+                {
+                    $bunnies->push($bunny);
+                }
+            }
+            elseif($age_range == 'more_than_1_year')
+            {
+                if($ageInMonths >= 12.0)
+                {
+                    $bunnies->push($bunny);
+                }
+            }
+            else // 'any'
+            {
+                $bunnies->push($bunny);
+            }
+        }
+
+
+
+
+
         if($bunnies->count() == 0)
         {
             return view('bunnyshelter.searchbunny')->with([
@@ -51,6 +82,7 @@ class SearchController extends Controller
                 'bunnies' => $bunnies,
                 //'buckOrDoe' => $buckOrDoe,
                 //'breeds' => $breeds,
+                'age_range' => $age_range,
                 'alert' => 'These are the bunnies you like'
             ]);
         }

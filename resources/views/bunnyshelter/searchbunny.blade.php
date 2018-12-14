@@ -11,8 +11,6 @@
         <input type='checkbox' name='breed[]' value='Lop'>Lop<br>
         <input type='checkbox' name='breed[]' value='Lionhead'>Lionhead<br>
         <input type='checkbox' name='breed[]' value='Rex'>Rex<br>
-        <input type='checkbox' name='breed[]' value='Angora'>Angora<br>
-        <input type='checkbox' name='breed[]' value='Jersey Wooly'>Jersey Wooly<br>
         <br>
 
         <label>Sex</label>
@@ -24,9 +22,9 @@
         <br><br>
 
         <label>Age (select one)</label><br>
-            <input type='radio' name='age' value='less_than_6_months'>Less than 6 months<br>
-            <input type='radio' name='age' value='6_months_to_1_year'>6 months to 1 year<br>
-            <input type='radio' name='age' value='more_than_1_year'>More than 1 year<br>
+            <input type='radio' name='age' value='less_than_1_year'>Younger than 1 year<br>
+            <input type='radio' name='age' value='more_than_1_year'>Older than 1 year<br>
+            <input type='radio' name='age' value='any'>Any<br>
         <br>
 
         {{--<ul>
@@ -38,6 +36,12 @@
         <input type='submit' value='Find the bunnies!'>
     </form>
 
+    <div>
+        @if(isset($age_range))
+            {{ $age_range }}
+        @endif
+    </div>
+
     <div class='img-with-text'>
     @if(isset($bunnies))
         @foreach($bunnies as $bunny)
@@ -46,5 +50,6 @@
         @endforeach
     @endif
     </div>
+
 
 @endsection

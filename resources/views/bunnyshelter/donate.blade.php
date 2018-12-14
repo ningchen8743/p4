@@ -21,6 +21,11 @@
 
         <input type='submit' value='Donate!'>
 
+        <p>Below is your donation history:</p>
+        @foreach($donations as $donationAmount)
+            You donated: {{$donationAmount->amount}}<br>
+        @endforeach
+
     </form>
 
 
