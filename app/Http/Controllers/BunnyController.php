@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Validator;
 
 use App\Donation;
-use App\User;
+
 
 class BunnyController extends Controller {
 
@@ -18,7 +18,7 @@ class BunnyController extends Controller {
         $bunnies = Bunny::all();
 
         return view('bunnyshelter.index')->with([
-            'bunnies' => $bunnies
+            'bunnies' => $bunnies,
         ]);
     }
 

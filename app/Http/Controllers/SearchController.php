@@ -20,13 +20,24 @@ class SearchController extends Controller
 
     public function searchBunny(Request $request)
     {
+        //$breeds = $request->session()->get('breed', '');
+        //$sex = $request->session()->get('buckOrDoe', 'both');
+        //$colors = $request->session()->get('color', '');
+        //$age = $request->session()->get('age', '');
+
         // extract data from quest
         $breeds = $request->input('breed', [
-            'Netherland Dwarf', 'Lop', 'Lionhead', 'Rex',
-            'Angora', 'Jersey Wooly']);
+            'Netherland Dwarf', 'Lop', 'Lionhead']);
         $buckOrDoe = $request->input('buckOrDoe');
+
         $colors = Color::all();
-        $colorsToSearch = $request->input('color', 'any_color');
+        $colorArray = array();
+        foreach($colors as $item)
+        {
+            array_push($colorArray, $item->name);
+        }
+
+        $colorsToSearch = $request->input('color', $colorArray);
 
 
         // breed query
@@ -81,7 +92,7 @@ class SearchController extends Controller
         foreach($bunnies_temp as $bunny)
         {
             $found = FALSE;
-            if($colorsToSearch == 'any_color'){
+            if($colorsToSearch === $colorArray){
                 $found = TRUE;
             }else{
                 // for each bunny, iterate all colors it has
@@ -113,13 +124,14 @@ class SearchController extends Controller
         }
         else
         {
+            session()->flash('breeds_cache', implode(" ", $breeds));
+            session()->flash('buckOrDoe_cache', $buckOrDoe);
+            session()->flash('colorsToSearch_cache', implode(" ", $colorsToSearch));
+            session()->flash('age_range_cache', $age_range);
+
             return view('bunnyshelter.searchbunny')->with([
                 'bunnies' => $bunnies,
-                //'buckOrDoe' => $buckOrDoe,
-                //'breeds' => $breeds,
-                'age_range' => $age_range,
                 'alert' => 'These are the bunnies you like',
-                'colorsToSearch' => $colorsToSearch,
                 'colors' => $colors,
             ]);
         }

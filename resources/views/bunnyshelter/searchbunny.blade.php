@@ -6,6 +6,23 @@
         <label>Find a bunny you would like to adopt!</label>
         <br>
 
+        <p>Your search criteria:</p>
+        @if(session()->has('breeds_cache'))
+            <p>breeds: {{  session()->get('breeds_cache') }}</p>
+        @endif
+
+        @if(session()->has('buckOrDoe_cache'))
+            <p>sex: {{  session()->get('buckOrDoe_cache') }}</p>
+        @endif
+
+        @if(session()->has('age_range_cache'))
+            <p>age: {{  session()->get('age_range_cache') }}</p>
+        @endif
+
+        @if(session()->has('colorsToSearch_cache'))
+            <p>colors: {{  session()->get('colorsToSearch_cache') }}</p>
+        @endif
+
         <label>Breed (select one or more)</label><br>
         <input type='checkbox' name='breed[]' value='Netherland Dwarf'>Netherland Dwarf<br>
         <input type='checkbox' name='breed[]' value='Lop'>Lop<br>
@@ -35,6 +52,8 @@
 
         <input type='submit' value='Find the bunnies!'>
     </form>
+
+
 
     <div>
         @if(isset($age_range))

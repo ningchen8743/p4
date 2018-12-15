@@ -20,11 +20,9 @@ Route::get('/all', 'BunnyController@index');
 Route::view('/contact', 'bunnyshelter.contact');
 
 
-Route::get('/search-bunny', 'SearchController@initializeView');
-
-
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/search-bunny', 'SearchController@initializeView');
     Route::get('/search-bunny-process','SearchController@searchBunny');
 
     Route::get('/all/{id}','BunnyController@showeach');
@@ -34,7 +32,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/all/{id}/edit','BunnyController@edit');
     Route::put('/all/{id}','BunnyController@update');
-
 
     Route::get('/all/{id}/delete','BunnyController@delete');
     Route::delete('/all/{id}','BunnyController@destroy');
