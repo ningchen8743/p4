@@ -20,9 +20,7 @@ Route::get('/all', 'BunnyController@index');
 Route::view('/contact', 'bunnyshelter.contact');
 
 
-Route::get('/search-bunny',function () {
-    return view('bunnyshelter.searchbunny');
-});
+Route::get('/search-bunny', 'SearchController@initializeView');
 
 
 Route::group(['middleware' => 'auth'], function () {

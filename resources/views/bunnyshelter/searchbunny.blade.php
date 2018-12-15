@@ -27,11 +27,11 @@
             <input type='radio' name='age' value='any'>Any<br>
         <br>
 
-        {{--<ul>
-        @foreach($colors as $colorId => $colorName)
-            <li><label><input type='checkbox' name='colors[]' value='{{ $colorId }}'>{{ $colorName }}</label></li>
+        <label>Color (select one or more)</label><br>
+        @foreach($colors as $color)
+            <input type='checkbox' name='color[]' value={{ $color->name }}>{{ $color->name }}<br>
         @endforeach
-        </ul>--}}
+        <br>
 
         <input type='submit' value='Find the bunnies!'>
     </form>
@@ -46,10 +46,13 @@
     @if(isset($bunnies))
         @foreach($bunnies as $bunny)
                 @include('bunnyshelter._bunny')
-                <a href='/all/{{$bunny->id}}/edit'>Adopt {{$bunny->name}}</a>
+                <a href='/all/{{$bunny->id}}/edit'>Adopt {{$bunny->name}}</a><br>
+
+                @foreach($bunny->colors as $item)
+                    <div>{{ $item->name  }}</div>
+                @endforeach
         @endforeach
     @endif
     </div>
-
 
 @endsection

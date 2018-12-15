@@ -7,31 +7,30 @@
 Primary tables:
   + bunnies
   + users
-  + `tags`
-  + `users`
+  + donations
+  + colors
   
 Pivot table(s):
-  + `book_tag`
+  + bunny_color
 
 
 ## CRUD
-*Describe what action I need take in order to see an example of all 4 CRUD operations in your app. I've filled this out with examples from the Foobooks app - delete this and replace with your own info. If one operation is performed multiple times (e.g. Read), you only need to provide 1 example.*
 
 __Create__
   + Visit donation panel: <http://p4.loc/donate>;
   + Choose the donation amount, or type in amount below
   + Click *Donate!*
-  + Observe the newly added record in the donation list
+  + Observe the newly added record in the user' own donation history
   
 __Read__
   + Visit <http://p4.ningchenbunny.com/all> see a listing of bunnies archived
   + Click on the name of the bunny, to view specific profile
   
 __Update__
-  + Visit <http://p4.ningchenbunny.com/all/3>; click on Modify profile link below the bunny's photo
-  + Make some edits to form
-  + Click *Submit changes*
-  + Observe confirmation message
+  + Visit <http://p4.ningchenbunny.com/all/3>; click on adopt the bunny link below the profile photo
+  + Change adoption status from "adoptable" to "adopted"
+  + Click *Adopt the bunny*
+  + Observe confirmation message, bunny's adoption status should have been changed to "adopted"
   
 __Delete__
   + After changing adoption status to "adopted" in bunny profile <http://p4.loc/all/3/edit>

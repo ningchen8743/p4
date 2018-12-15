@@ -11,8 +11,15 @@
         <div class='error'>Please correct the errors below.</div>
     @endif
 
-    <form method='POST' action='/donate'>
+    <form class='donation' method='POST' action='/donate'>
         {{ csrf_field() }}
+
+        <label>Select the amount you would like to donate below:</label><br>
+        <input type='radio' name='donationAmount' value='5'>$5<br>
+        <input type='radio' name='donationAmount' value='10'>$10<br>
+        <input type='radio' name='donationAmount' value='25'>$25<br>
+        <input type='radio' name='donationAmount' value='50'>$50<br>
+        <br>
 
         <label for='value'>Or enter amount here</label>
         <input type='text' name='amount' id='amount'>
