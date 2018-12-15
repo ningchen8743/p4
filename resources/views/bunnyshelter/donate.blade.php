@@ -15,15 +15,15 @@
         {{ csrf_field() }}
 
         <label for='value'>Or enter amount here</label>
-        <input type='text' name='value' id='value'>
-        @include('errors.my_error', ['key' => 'value'])
+        <input type='text' name='amount' id='amount'>
+        @include('errors.my_error', ['key' => 'amount'])
         <br>
 
         <input type='submit' value='Donate!'>
 
         <p>Below is your donation history:</p>
         @foreach($donations as $donationAmount)
-            You donated: {{$donationAmount->amount}}<br>
+            You donated: ${{$donationAmount->amount}}<br>
         @endforeach
 
     </form>

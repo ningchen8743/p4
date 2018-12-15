@@ -68,7 +68,6 @@ class SearchController extends Controller
 
 
 
-
         if($bunnies->count() == 0)
         {
             return view('bunnyshelter.searchbunny')->with([

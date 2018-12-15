@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 use Validator;
 
+use App\Donation;
+use App\User;
+
 class BunnyController extends Controller {
 
     public function index()
@@ -28,11 +31,11 @@ class BunnyController extends Controller {
         ]);
     }
 
+
     public function initializeView(Request $request)
     {
         $user = $request->user();
         $donations = $user->donations()->get();
-
 
         return view('bunnyshelter.donate')->with([
             'donations' => $donations,
@@ -41,20 +44,21 @@ class BunnyController extends Controller {
 
     public function store(Request $request)
     {
-        $validator= Validator::make ($request->all(),[
-            'value' => 'required|numeric',
+        $request->validate([
+            'amount' => 'required|integer',
         ]);
 
-        if ($validator->fails()) {
-            return redirect('/donate')->withErrors($validator)->withInput();
-        }else {
+        $donation = new Donation();
+        $donation->amount = $request->input('amount');
+        $donation->user_id = $request->user()->id;
+        $donation->save();
 
-            return redirect('/donate')->with([
-                'alert' => 'Your donation record was added to the list.'
-            ]);
-        }
-
+        return redirect('/donate')->with([
+            'alert' => 'Your donation record was added to the list.',
+            'donation' => $donation,
+        ]);
     }
+
 
     public function edit($id)
     {
@@ -71,32 +75,29 @@ class BunnyController extends Controller {
 
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|regex:/^[\pL\s\-]+$/u',
-            'sex' => 'required|alpha',
-            'dob' => 'required|date_format:Y-m-d',
-            'breed' => 'required|regex:/^[\pL\s\-]+$/u',
-            'adoption_status' => 'required|alpha',
-            'photo_url' => 'required|url',
-        ]);
+        $adoption_status = $request->input('adoptableOrAdopted');
 
-        if ($validator->fails()) {
-            return redirect('/all/'.$id.'/edit')->withErrors($validator)->withInput();
-        } else {
-            $bunny = Bunny::find($id);
-            $bunny->name = $request->input('name');
-            $bunny->sex = $request->input('sex');
-            $bunny->dob = $request->input('dob');
-            $bunny->breed = $request->input('breed');
-            $bunny->adoption_status = $request->input('adoption_status');
-            $bunny->photo_url = $request->input('photo_url');
-            $bunny->save();
+        $bunny = Bunny::find($id);
+        $bunny->adoption_status = $adoption_status;
+        $bunny->save();
 
-            return redirect('/all/'.$id)->with([
-                'alert' => 'You have updated bunny information!'
+        if($adoption_status == 'adopted')
+        {
+            return view('bunnyshelter.showeach')->with([
+                'alert' => 'You just adopted the bunny!',
+                'bunny' => $bunny,
+            ]);
+        }
+        else // adoptable
+        {
+            return view('bunnyshelter.showeach')->with([
+                'alert' => 'You did not adopt the bunny.',
+                'bunny' => $bunny,
             ]);
         }
     }
+
+
 
     public function delete($id)
     {
