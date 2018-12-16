@@ -18,8 +18,4 @@
     <a class='right' href='/contact'>Need to know more of {{$bunny->name}}? Contact us!</a><br>
     <a class='right' href='/all'>Back</a>
 
-    @if(isset($alert))
-    <p>{{ $alert }}</p>
-    @endif
-
 @endsection

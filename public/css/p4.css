@@ -3,6 +3,7 @@ html {
 }
 
 div {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
     border-radius: 7px;
     background-color: RGB(220,227,220);
     width: 900px;
@@ -11,23 +12,32 @@ div {
 }
 
 div.error {
-    font-family: "Century Gothic", "Helvetica", sans-serif;
-    color: darkred;
+    color: indianred;
+    text-align: center;
     font-weight: bold;
     font-size: 14px;
-    padding:0px;
+    padding:0;
+}
+
+div.alert {
+    color: darkorange;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    padding:0;
 }
 
 form {
+    font-family: "Century Gothic", "Helvetica", sans-serif;
     text-align: center;
 }
 
-.searchbunny {
-    font-family: "Century Gothic", "Helvetica", sans-serif;
+form.searchbunny {
     color: darkslategrey;
 }
 
-.donation {
+form.donation {
+    color: darkslategrey;
 }
 
 section {
@@ -56,7 +66,7 @@ h2 {
 label {
     font-family: "Century Gothic", Helvetica, sans-serif;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 16px;
     color: darkslategrey;
 }
 
@@ -68,14 +78,17 @@ p {
     color: darkslategrey;
 }
 
-
-ul li {
+ul {
     font-family: "Century Gothic", Helvetica, sans-serif;
-    font-size: 15px;
-    margin-right: 30px;
+    font-size: 16px;
     font-weight: bold;
     text-align: center;
     list-style-type: none;
+    color: darkslategrey;
+}
+
+ul li {
+    font-size: 15px;
     color: slategrey;
 }
 
@@ -192,7 +205,7 @@ a.center {
 .my-image-row {
     display: flex;
     flex-wrap: wrap;
-    padding: 0px;
+    padding: 0;
 }
 
 .my-image-column {

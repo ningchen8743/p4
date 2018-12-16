@@ -5,11 +5,8 @@
 @endsection
 
 @section('content')
-    <h1>Please help build our community!</h1>
-    <h2>Please select the amount you would like to donate, thank you!</h2>
-    @if($errors->any())
-        <div class='error'>Please correct the errors below.</div>
-    @endif
+    <h1>Please help build our community, thank you! ^_^</h1>
+    <p>Every penny will be put to good use. Your donation supports the work of rabbit rescue, education, and advocacy.</p>
 
     <form class='donation' method='POST' action='/donate'>
         {{ csrf_field() }}
@@ -20,11 +17,6 @@
         <input type='radio' name='donationAmount' value='25'>$25<br>
         <input type='radio' name='donationAmount' value='50'>$50<br>
         <br>
-
-        {{--<label for='value'>Or enter amount here (please enter an integer)</label><br>
-        <input type='text' name='amount' id='amount'>
-        @include('errors.my_error', ['key' => 'amount'])
-        <br>--}}
 
         <input type='submit' value='Donate!'>
 

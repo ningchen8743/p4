@@ -32,10 +32,10 @@
         <br>
 
         <label>Sex</label>
-        <select name='buckOrDoe' form='search_bunny' value='both'>
+        <select name='buckOrDoe' form='search_bunny'>
             <option value='buck'>Buck</option>
             <option value='doe'>Doe</option>
-            <option value='Either is fine'>Either is fine</option>
+            <option value='Either is fine' selected>Either is fine</option>
         </select>
         <br><br>
 
@@ -54,23 +54,10 @@
         <input type='submit' value='Find the bunnies!'>
     </form>
 
-
-
-    <div>
-        @if(isset($age_range))
-            {{ $age_range }}
-        @endif
-    </div>
-
-    <div class='img-with-text'>
+    <div class='my-image-row'>
     @if(isset($bunnies))
         @foreach($bunnies as $bunny)
                 @include('bunnyshelter._bunny')
-                <a href='/all/{{$bunny->id}}/edit'>Adopt {{$bunny->name}}</a><br>
-
-                @foreach($bunny->colors as $item)
-                    <div>{{ $item->name  }}</div>
-                @endforeach
         @endforeach
     @endif
     </div>

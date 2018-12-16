@@ -10,7 +10,6 @@
     <div class='my-image-row'>
     @foreach($bunnies as $bunny)
         @include('bunnyshelter._bunny')
-
     @endforeach
     </div>
 

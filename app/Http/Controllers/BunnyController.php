@@ -45,17 +45,30 @@ class BunnyController extends Controller {
     public function store(Request $request)
     {
         $donation = new Donation();
-        $donation->amount = $request->input('donationAmount');
-        $donation->user_id = $request->user()->id;
-        $donation->save();//save the new object into database
+        $donation->amount = $request->input('donationAmount',0);
 
-        $user = $request->user();
-        $donations = $user->donations()->get(); //grab objects from database using user->donations() method
+        if ($donation->amount == 0) {
+            $user = $request->user();
+            $donations = $user->donations()->get(); //grab objects from database using user->donations() method
 
-        return redirect('/donate')->with([
-            'alert' => 'Your donation record was added to the history list.',
-            'donations' => $donations,
-        ]);
+            return view('bunnyshelter.donate')->with([
+                'alert' => 'Before click donate button, you must select an amount.',
+                'donations' => $donations,
+            ]);
+        }
+        else
+        {
+            $donation->user_id = $request->user()->id;
+            $donation->save();//save the new object into database
+
+            $user = $request->user();
+            $donations = $user->donations()->get(); //grab objects from database using user->donations() method
+
+            return view('bunnyshelter.donate')->with([
+                'alert' => 'Your donation record was added to the history list.',
+                'donations' => $donations,
+            ]);
+        }
     }
 
 
@@ -118,14 +131,19 @@ class BunnyController extends Controller {
         $bunny = Bunny::find($id);
         $adoption_status = $bunny->adoption_status;
         if ($adoption_status!='adopted') {
-            return redirect('/all/'.$id)->with([
-                'alert' => 'Only adopted bunny record can be deleted.'
+            return view('bunnyshelter.showeach')->with([
+                'alert' => 'Only adopted bunny record can be deleted.',
+                'bunny' => $bunny
             ]);
         }
+
         $bunny->colors()->detach();
         $bunny->delete();
-        return redirect('/all')->with([
+        $bunnies = Bunny::all();
+
+        return view('bunnyshelter.index')->with([
             'alert' => 'The adopted bunny profile has been deleted.',
+            'bunnies' => $bunnies
         ]);
     }
 

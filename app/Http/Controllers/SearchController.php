@@ -112,9 +112,15 @@ class SearchController extends Controller
 
         if($bunnies->count() == 0)
         {
+            session()->flash('breeds_cache', implode(" ", $breeds));
+            session()->flash('buckOrDoe_cache', $buckOrDoe);
+            session()->flash('colorsToSearch_cache', implode(" ", $colorsToSearch));
+            session()->flash('age_range_cache', $age_range);
+
             return view('bunnyshelter.searchbunny')->with([
                 'bunnies' => $bunnies,
-                'alert' => 'Sorry! Your preferred bunny is not found, please give another try:)'
+                'alert' => 'Sorry! Your preferred bunny is not found, please give another try:)',
+                'colors' => $colors,
             ]);
         }
         else
@@ -126,7 +132,7 @@ class SearchController extends Controller
 
             return view('bunnyshelter.searchbunny')->with([
                 'bunnies' => $bunnies,
-                'alert' => 'These are the bunnies you like',
+                'alert' => 'We found some bunnies!',
                 'colors' => $colors,
             ]);
         }
