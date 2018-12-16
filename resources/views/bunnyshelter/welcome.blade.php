@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Welcome to the adoption center
+@endsection
+
 @section('content')
 
 <h1>Welcome to the house rabbit adoption center!</h1>

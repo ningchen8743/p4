@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    About this website
+@endsection
+
 @section('content')
 
     <ul>

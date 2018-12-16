@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Contact information
+@endsection
+
 @section('content')
 
 <h2>To know more information of the bunnies, you can:</h2>

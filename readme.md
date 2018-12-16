@@ -17,7 +17,7 @@ Pivot table(s):
 ## CRUD
 
 __Create__
-  + Visit [donation panel](http://p4.ningchenbunny.com/donate);
+  + Visit [donation panel](http://p4.ningchenbunny.com/donate)
   + Choose the donation amount
   + Click *Donate!*
   + Observe the confirmation message, and newly added record in the user' own donation history
@@ -38,7 +38,7 @@ __Delete__
   + Observe confirmation message
 
 ## Search record
-  + Visit [find a bunny you like](http://p4.ningchenbunny.com/search-bunny);
+  + Visit [find a bunny you like](http://p4.ningchenbunny.com/search-bunny)
   + Choose the criteria users prefer from each section
   + Click *Find the bunnies*
   + Observe search result message and available bunny profiles below

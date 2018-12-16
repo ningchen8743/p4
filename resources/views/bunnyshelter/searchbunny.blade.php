@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Find a bunny you like
+@endsection
+
 @section('content')
 
     <form class='searchbunny' method='GET' action='/search-bunny-process' id='search_bunny'>
