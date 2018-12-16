@@ -20,11 +20,6 @@ class SearchController extends Controller
 
     public function searchBunny(Request $request)
     {
-        //$breeds = $request->session()->get('breed', '');
-        //$sex = $request->session()->get('buckOrDoe', 'both');
-        //$colors = $request->session()->get('color', '');
-        //$age = $request->session()->get('age', '');
-
         // extract data from quest
         $breeds = $request->input('breed', [
             'Netherland Dwarf', 'Lop', 'Lionhead']);
@@ -65,14 +60,14 @@ class SearchController extends Controller
             $past = Carbon::parse($bunny->dob);
             $ageInMonths = $now->diffInMonths($past);
 
-            if($age_range == 'less_than_1_year')
+            if($age_range == 'Younger than 1 year old')
             {
                 if($ageInMonths < 12.0)
                 {
                     $bunnies->push($bunny);
                 }
             }
-            elseif($age_range == 'more_than_1_year')
+            elseif($age_range == 'Older than 1 year old')
             {
                 if($ageInMonths >= 12.0)
                 {

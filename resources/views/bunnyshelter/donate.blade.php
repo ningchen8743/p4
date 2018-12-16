@@ -21,18 +21,18 @@
         <input type='radio' name='donationAmount' value='50'>$50<br>
         <br>
 
-        <label for='value'>Or enter amount here</label>
+        {{--<label for='value'>Or enter amount here (please enter an integer)</label><br>
         <input type='text' name='amount' id='amount'>
         @include('errors.my_error', ['key' => 'amount'])
-        <br>
+        <br>--}}
 
         <input type='submit' value='Donate!'>
 
-        <p>Below is your donation history:</p>
+        <ul>Below is your donation history:
         @foreach($donations as $donationAmount)
-            You donated: ${{$donationAmount->amount}}<br>
+            <li>You donated: ${{$donationAmount->amount}}</li>
         @endforeach
-
+        </ul>
     </form>
 
 

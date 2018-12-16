@@ -44,18 +44,17 @@ class BunnyController extends Controller {
 
     public function store(Request $request)
     {
-        $request->validate([
-            'amount' => 'required|integer',
-        ]);
-
         $donation = new Donation();
-        $donation->amount = $request->input('amount');
+        $donation->amount = $request->input('donationAmount');
         $donation->user_id = $request->user()->id;
-        $donation->save();
+        $donation->save();//save the new object into database
+
+        $user = $request->user();
+        $donations = $user->donations()->get(); //grab objects from database using user->donations() method
 
         return redirect('/donate')->with([
-            'alert' => 'Your donation record was added to the list.',
-            'donation' => $donation,
+            'alert' => 'Your donation record was added to the history list.',
+            'donations' => $donations,
         ]);
     }
 

@@ -6,22 +6,23 @@
         <label>Find a bunny you would like to adopt!</label>
         <br>
 
-        <p>Your search criteria:</p>
+        <ul>Your search criteria:
         @if(session()->has('breeds_cache'))
-            <p>breeds: {{  session()->get('breeds_cache') }}</p>
+            <li>breeds: {{  session()->get('breeds_cache') }}</li>
         @endif
 
         @if(session()->has('buckOrDoe_cache'))
-            <p>sex: {{  session()->get('buckOrDoe_cache') }}</p>
+            <li>sex: {{  session()->get('buckOrDoe_cache') }}</li>
         @endif
 
         @if(session()->has('age_range_cache'))
-            <p>age: {{  session()->get('age_range_cache') }}</p>
+            <li>age: {{  session()->get('age_range_cache') }}</li>
         @endif
 
         @if(session()->has('colorsToSearch_cache'))
-            <p>colors: {{  session()->get('colorsToSearch_cache') }}</p>
+            <li>colors: {{  session()->get('colorsToSearch_cache') }}</li>
         @endif
+        </ul>
 
         <label>Breed (select one or more)</label><br>
         <input type='checkbox' name='breed[]' value='Netherland Dwarf'>Netherland Dwarf<br>
@@ -34,14 +35,14 @@
         <select name='buckOrDoe' form='search_bunny' value='both'>
             <option value='buck'>Buck</option>
             <option value='doe'>Doe</option>
-            <option value='both'>Either is fine</option>
+            <option value='Either is fine'>Either is fine</option>
         </select>
         <br><br>
 
         <label>Age (select one)</label><br>
-            <input type='radio' name='age' value='less_than_1_year'>Younger than 1 year<br>
-            <input type='radio' name='age' value='more_than_1_year'>Older than 1 year<br>
-            <input type='radio' name='age' value='any'>Any<br>
+            <input type='radio' name='age' value='Younger than 1 year old'>Younger than 1 year<br>
+            <input type='radio' name='age' value='Older than 1 year old'>Older than 1 year<br>
+            <input type='radio' name='age' value='Any age'>Any age<br>
         <br>
 
         <label>Color (select one or more)</label><br>
