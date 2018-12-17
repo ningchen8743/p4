@@ -175,6 +175,10 @@ a.center {
     color: lightblue;
 }
 
+#horizontalNavUL a:visited {
+    color: white;
+}
+
 .horizontalNavItem {
     display: inline-block;
     color: orange;
